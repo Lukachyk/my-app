@@ -1,7 +1,7 @@
 import React from "react";
-import s from "./Posts.module.css";
+import s from "./Post.module.css";
 
-const Posts = (props) => {
+const Post = (props) => {
   return (
     <div className={s.item}>
       <img src="https://w7.pngwing.com/pngs/529/832/png-transparent-computer-icons-avatar-user-profile-avatar-thumbnail.png" />
@@ -13,4 +13,4 @@ const Posts = (props) => {
   );
 };
 
-export default Posts;
+export default Post;

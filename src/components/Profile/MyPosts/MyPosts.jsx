@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./MyPosts.module.css";
-import Posts from "./Post/Posts";
+import Post from "./Post/Post";
 
 const MyPosts = () => {
   return (
@@ -13,8 +13,8 @@ const MyPosts = () => {
         </div>
       </div>
       <div className={s.posts}>
-        <Posts message=" Hi, how are you" reating="3" />
-        <Posts message=" It's my first post " reating="5" />
+        <Post message=" Hi, how are you" reating="3" />
+        <Post message=" It's my first post " reating="5" />
       </div>
     </div>
   );
