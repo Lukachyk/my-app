@@ -1,52 +1,14 @@
 .app-wrapper {
   display: grid;
-  display: 1200px;
-  margin: 0 auto;
 
   grid-template-areas:
-    "s h "
-    "s c ";
+    "h h "
+    "s c";
 
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
 }
 
-.header {
-  grid-area: h;
-  align-items: center;
-  background: #6d10db;
-}
-.header img {
-  width: 100px;
-  padding-left: 50%;
-
-  display: 1200px;
-}
-.sidebar {
-  grid-area: s;
-  position: absolute;
-  overflow: hidden;
-  top: 0px;
-  left: 0;
-  width: 75px;
-  height: 100%;
-  background: #6d10db;
-  transition: width 0.4s;
-}
-
-.content {
-  grid-area: c;
-}
-.content img {
-  width: 100%;
-  height: 120px;
-}
-
 body {
   background: black;
-}
-
-.content {
-  color: white;
-  padding-left: 74px;
 }

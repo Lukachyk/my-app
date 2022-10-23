@@ -1,0 +1,7 @@
+.content {
+  grid-area: c;
+}
+.content {
+  color: red;
+  padding-left: 100px;
+}

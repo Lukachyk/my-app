@@ -1,0 +1,11 @@
+.content {
+  grid-area: c;
+}
+.content img {
+  width: 100%;
+  height: 120px;
+}
+.ava {
+  padding-left: 400px;
+  color: white;
+}

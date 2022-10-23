@@ -1,0 +1,11 @@
+.sidebar {
+  grid-area: s;
+  position: absolute;
+  overflow: hidden;
+  top: 0px;
+  left: 0;
+  width: 75px;
+  height: 100%;
+  background: #6d10db;
+  transition: width 0.4s;
+}

@@ -1,7 +1,9 @@
 import React from "react";
+import s from "./Sidebar.module.css";
+
 const Sidebar = () => {
   return (
-    <div className="sidebar">
+    <div className={s.sidebar}>
       <button
         type="button"
         className="sidebar-burger"
