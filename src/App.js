@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="app-wraper">
+      <div className="app-wrapper">
         <Header />
         <Sidebar />
         <div className="app-wrapper-content">

@@ -1,27 +1,26 @@
 import React from "react";
 import s from "./Sidebar.module.css";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
     <div className={s.sidebar}>
-      <button
-        type="button"
-        className="sidebar-burger"
-        onclick="toggleSidebar()"
-      ></button>
-      <nav className="sidebar-menu">
-        <button type="button">
-          <img src="./assets/icon-home.svg" alt="icon" />
-          <a href="/profile">Home</a>
-        </button>
-        <button type="button" className="has-border">
-          <span>Settings</span>
-        </button>
-
-        <button type="button">
-          <a href="/dialogs">Blockchick</a>
-        </button>
-      </nav>
+      <div>
+        <NavLink
+          to="/profile"
+          className={(navData) => (navData.isActive ? s.active : s.item)}
+        >
+          Home
+        </NavLink>
+      </div>
+      <div>
+        <NavLink
+          to="/dialogs"
+          className={(navData) => (navData.isActive ? s.active : s.item)}
+        >
+          Blockchick
+        </NavLink>
+      </div>
     </div>
   );
 };
