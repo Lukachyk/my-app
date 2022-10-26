@@ -1,7 +1,4 @@
-.content {
-  grid-area: c;
-}
-.content img {
+.main_img img {
   width: 100%;
   height: 120px;
 }

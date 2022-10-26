@@ -4,8 +4,8 @@ import s from "./Profile.module.css";
 
 const Profile = () => {
   return (
-    <div className={s.content}>
-      <div>
+    <div>
+      <div className={s.main_img}>
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNsKjXisU4M4s8U2kgtmGhk-_KDrQCLiyJQCZUYuLM&s"
           alt="content-logo"

@@ -7,7 +7,7 @@ const Post = (props) => {
       <img src="https://w7.pngwing.com/pngs/529/832/png-transparent-computer-icons-avatar-user-profile-avatar-thumbnail.png" />
       {props.message}
       <div>
-        <span>Like {props.reating}</span>
+        <span>Like {props.like}</span>
       </div>
     </div>
   );
