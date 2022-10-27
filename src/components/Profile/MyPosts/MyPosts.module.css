@@ -3,5 +3,8 @@
 }
 .content {
   color: red;
-  padding-left: 100px;
+  padding: 10px;
+}
+.post {
+  padding: 10px;
 }
