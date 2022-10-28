@@ -3,10 +3,11 @@
   width: 75px;
   background: #6d10db;
   padding: 20px;
+  line-height: 23px; /* Растояние между строками */
 }
 .sidebar a {
   text-decoration: none;
 }
 .active {
-  color: gold;
+  color: goldenrod;
 }

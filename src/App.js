@@ -10,6 +10,7 @@ const App = () => {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
+
         <Sidebar />
         <div className="app-wrapper-content">
           <Routes>

@@ -7,6 +7,10 @@ const MyPosts = (props) => {
     { id: 1, message: "Hi, how are you", like: 3 },
     { id: 2, message: "It's my first post", like: 5 },
   ];
+
+  let elemensPost = postData.map((element) => (
+    <Post message={element.message} like={element.like} />
+  ));
   return (
     <div className={s.content}>
       <div>
@@ -18,10 +22,7 @@ const MyPosts = (props) => {
           <button> Add post </button>
         </div>
       </div>
-      <div className={s.posts}>
-        <Post message={postData[0].message} like={postData[0].like} />
-        <Post message={postData[1].message} like={postData[1].like} />
-      </div>
+      <div className={s.posts}>{elemensPost}</div>
     </div>
   );
 };
