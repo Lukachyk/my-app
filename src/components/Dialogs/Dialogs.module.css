@@ -10,9 +10,6 @@
   color: gold;
 }
 
-.messages {
-}
-
-.message {
+.messages .dialog {
   padding: 10px;
 }
