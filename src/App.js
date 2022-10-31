@@ -6,6 +6,10 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = (props) => {
+  // let postData = [
+  //   { id: 1, message: "Hi, how are you", like: 3 },
+  //   { id: 2, message: "It's my first post", like: 5 },
+  // ];
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -18,14 +22,16 @@ const App = (props) => {
             <Route path="/dialogs/*" element={<Dialogs />} /> */}
             <Route
               path="/profile"
-              element={<Profile postsData={props.postsData} />}
+              element={<Profile postData={props.postData} />}
             />
             <Route
               path="/dialogs*"
               element={
                 <Dialogs
-                  dialogsData={props.dialogs}
-                  messagesData={props.messages}
+                  // dialogsData={props.dialogs}// уже не требуеться
+                  // messagesData={props.messages} // уже не тренубеться работает и атк
+                  messagesData={props.messagesData}
+                  dialogsData={props.dialogsData}
                 />
               }
             />
