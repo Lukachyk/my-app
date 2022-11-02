@@ -23,6 +23,15 @@ let state = {
   },
 };
 
+export let addPost = (postMessage) => {
+  let newPostData = {
+    id: 3,
+    message: postMessage,
+    like: 0,
+  };
+  state.profilePage.postData.push(newPostData);
+};
+
 export default state;
 // let postData = [
 //     { id: 1, message: "Hi, how are you", like: 3 },
