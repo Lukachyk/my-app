@@ -1,8 +1,9 @@
 import React from "react";
 import s from "./Sidebar.module.css";
 import { NavLink } from "react-router-dom";
+import DialogItem from "../Dialogs/DialogItem/DialogsItem";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   return (
     <div className={s.sidebar}>
       <div>
@@ -20,6 +21,14 @@ const Sidebar = () => {
         >
           Blockchick
         </NavLink>
+      </div>
+      <div className={s.friends}>
+        <h3>Friends</h3>
+        <div className={s.friendsAva}>
+          <DialogItem />
+          <DialogItem />
+          <DialogItem />
+        </div>
       </div>
     </div>
   );

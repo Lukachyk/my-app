@@ -13,3 +13,23 @@
 .messages .dialog {
   padding: 10px;
 }
+.ava {
+  height: 50px;
+  border-radius: 60%;
+}
+.buttonAdd {
+  height: 2rem;
+  padding: 0 2rem;
+  border-radius: 0.375rem;
+  background: #4503dc;
+  color: #ffffff;
+  box-shadow: 0 0.2rem 0 0 #3a0ca6;
+  letter-spacing: 1px;
+  font-size: 13px;
+  transition: all 0.3s;
+}
+
+.buttonAdd:active {
+  transform: translatey (0.3rem);
+  box-shadow: 0 0.1rem 0 0 #3a0ca6;
+}

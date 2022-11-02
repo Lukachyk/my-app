@@ -3,23 +3,25 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-  // let postData = [
-  //   { id: 1, message: "Hi, how are you", like: 3 },
-  //   { id: 2, message: "It's my first post", like: 5 },
-  // ];
-
   let elemensPost = props.postData.map((element) => (
     <Post message={element.message} like={element.like} />
   ));
+
+  let newPostElement = React.createRef();
+
+  let addPost = () => {
+    let text = newPostElement.current.value;
+    alert(text);
+  };
   return (
     <div className={s.content}>
       <div>
         <h3> My post</h3>
         <div>
           <div>
-            <textarea></textarea>
+            <textarea ref={newPostElement} placeholder="new post"></textarea>
           </div>
-          <button> Add post </button>
+          <button onClick={addPost}> Add post </button>
         </div>
       </div>
       <div className={s.posts}>{elemensPost}</div>
