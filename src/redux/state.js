@@ -23,12 +23,13 @@ let state = {
       { id: 4, message: "Whats up" },
       { id: 5, message: "Hi" },
     ],
+    newDialogText: "TestText2",
   },
 };
 
 export let addPost = () => {
   let newPostData = {
-    id: 3,
+    id: 5,
     message: state.profilePage.newPostText,
     like: 0,
   };
@@ -36,9 +37,23 @@ export let addPost = () => {
   state.profilePage.newPostText = " ";
   rerenderEntireTree(state);
 };
+export let addDialog = () => {
+  let newDialogText = {
+    id: 6,
+    message: state.dialogsPage.newDialogText,
+  };
+  state.dialogsPage.messagesData.push(newDialogText);
+  state.dialogsPage.newDialogText = " ";
+  rerenderEntireTree(state);
+};
 
 export let updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+};
+
+export let updateNewDialogText = (newText) => {
+  state.dialogsPage.newDialogText = newText;
   rerenderEntireTree(state);
 };
 
