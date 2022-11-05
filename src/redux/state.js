@@ -1,4 +1,6 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = () => {
+  console.log("State  changed");
+};
 
 let state = {
   profilePage: {
@@ -27,7 +29,7 @@ let state = {
   },
 };
 
-export let addPost = () => {
+export const addPost = () => {
   let newPostData = {
     id: 5,
     message: state.profilePage.newPostText,
@@ -37,7 +39,7 @@ export let addPost = () => {
   state.profilePage.newPostText = " ";
   rerenderEntireTree(state);
 };
-export let addDialog = () => {
+export const addDialog = () => {
   let newDialogText = {
     id: 6,
     message: state.dialogsPage.newDialogText,
@@ -47,14 +49,17 @@ export let addDialog = () => {
   rerenderEntireTree(state);
 };
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
   rerenderEntireTree(state);
 };
 
-export let updateNewDialogText = (newText) => {
+export const updateNewDialogText = (newText) => {
   state.dialogsPage.newDialogText = newText;
   rerenderEntireTree(state);
+};
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer; // это паттерн observeк (наблюдатель) rerender функция которая написана в index.js
 };
 
 export default state;
