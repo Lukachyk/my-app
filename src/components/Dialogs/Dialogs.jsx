@@ -15,11 +15,12 @@ const Dialogs = (props) => {
   let newMessageElement = React.createRef();
 
   let addDialog = () => {
-    props.addDialog();
+    props.dispatch({ type: "ADD-DIALOG" });
   };
   let onDialogChange = () => {
     let text = newMessageElement.current.value;
-    props.updateNewDialogText(text);
+    let action = { type: "UPDATE-NEW-DIALOG-TEXT", newText: text };
+    props.dispatch(action);
   };
 
   return (

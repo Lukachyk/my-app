@@ -5,6 +5,7 @@ let store = {
         { id: 1, message: "Hi, how are you", like: 3 },
         { id: 2, message: "It's my first post", like: 5 },
       ],
+
       newPostText: "TestText1",
     },
     dialogsPage: {
@@ -36,20 +37,6 @@ let store = {
     this._callSubcriber = observer; // это паттерн observeк (наблюдатель) rerender функция которая написана в index.js
   },
 
-  addDialog() {
-    let newDialogText = {
-      id: 6,
-      message: this._state.dialogsPage.newDialogText,
-    };
-    this._state.dialogsPage.messagesData.push(newDialogText);
-    this._state.dialogsPage.newDialogText = " ";
-    this._callSubcriber(this._state);
-  },
-  updateNewDialogText(newText) {
-    this._state.dialogsPage.newDialogText = newText;
-    this._callSubcriber(this._state);
-  },
-
   dispatch(action) {
     if (action.type === "ADD-POST") {
       let newPostData = {
@@ -57,11 +44,24 @@ let store = {
         message: this._state.profilePage.newPostText,
         like: 0,
       };
+      debugger;
       this._state.profilePage.postData.push(newPostData);
       this._state.profilePage.newPostText = " ";
       this._callSubcriber(this._state);
+    } else if (action.type === "ADD-DIALOG") {
+      let newDialogText = {
+        id: 6,
+        message: this._state.dialogsPage.newDialogText,
+      };
+
+      this._state.dialogsPage.messagesData.push(newDialogText);
+      this._state.dialogsPage.newDialogText = " ";
+      this._callSubcriber(this._state);
     } else if (action.type === "UPDATE-NEW-POST-TEXT") {
       this._state.profilePage.newPostText = action.newText;
+      this._callSubcriber(this._state);
+    } else if (action.type === "UPDATE-NEW-DIALOG-TEXT") {
+      this._state.dialogsPage.newDialogText = action.newText;
       this._callSubcriber(this._state);
     }
   },
