@@ -25,23 +25,17 @@ let store = {
       newDialogText: "TestText2",
     },
   },
-  getState() {
-    return this._state;
-  },
   _callSubcriber() {
     console.log("State  changed");
   },
-  addPost() {
-    debugger;
-    let newPostData = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      like: 0,
-    };
-    this._state.profilePage.postData.push(newPostData);
-    this._state.profilePage.newPostText = " ";
-    this._callSubcriber(this._state);
+
+  getState() {
+    return this._state;
   },
+  subscribe(observer) {
+    this._callSubcriber = observer; // это паттерн observeк (наблюдатель) rerender функция которая написана в index.js
+  },
+
   addDialog() {
     let newDialogText = {
       id: 6,
@@ -51,16 +45,25 @@ let store = {
     this._state.dialogsPage.newDialogText = " ";
     this._callSubcriber(this._state);
   },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubcriber(this._state);
-  },
   updateNewDialogText(newText) {
     this._state.dialogsPage.newDialogText = newText;
     this._callSubcriber(this._state);
   },
-  subscribe(observer) {
-    this._callSubcriber = observer; // это паттерн observeк (наблюдатель) rerender функция которая написана в index.js
+
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      let newPostData = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        like: 0,
+      };
+      this._state.profilePage.postData.push(newPostData);
+      this._state.profilePage.newPostText = " ";
+      this._callSubcriber(this._state);
+    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubcriber(this._state);
+    }
   },
 };
 
