@@ -1,3 +1,7 @@
+import profileReducer from "./profile-reduce";
+import dialogsReducer from "./dialogs-reduce";
+import sidebarReducer from "./sidebar-reduce";
+
 const ADD_POST = "ADD-POST";
 const ADD_DIALOG = "ADD-DIALOG";
 const UDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
@@ -30,6 +34,7 @@ let store = {
       ],
       newDialogText: "TestText2",
     },
+    sidebar: {},
   },
   _callSubcriber() {
     console.log("State  changed");
@@ -43,44 +48,12 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPostData = {
-        id: 5,
-        message: this._state.profilePage.newPostText,
-        like: 0,
-      };
-      debugger;
-      this._state.profilePage.postData.push(newPostData);
-      this._state.profilePage.newPostText = " ";
-      this._callSubcriber(this._state);
-    } else if (action.type === ADD_DIALOG) {
-      let newDialogText = {
-        id: 6,
-        message: this._state.dialogsPage.newDialogText,
-      };
-
-      this._state.dialogsPage.messagesData.push(newDialogText);
-      this._state.dialogsPage.newDialogText = " ";
-      this._callSubcriber(this._state);
-    } else if (action.type === UDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubcriber(this._state);
-    } else if (action.type === UPDATE_NEW_DEALOG_TEXT) {
-      this._state.dialogsPage.newDialogText = action.newText;
-      this._callSubcriber(this._state);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+    this._callSubcriber(this._state);
   },
 };
-export const addPostActionCreator = () => ({ type: ADD_POST });
-export const addDialogActionCreator = () => ({ type: ADD_DIALOG });
-export const updateNewPostTextActionCreator = (text) => ({
-  type: UDATE_NEW_POST_TEXT,
-  newText: text,
-});
-export const updateNewDialogText = (text) => ({
-  type: UPDATE_NEW_DEALOG_TEXT,
-  newText: text,
-});
 
 window.state = store;
 
