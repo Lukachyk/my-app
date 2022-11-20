@@ -2,11 +2,6 @@ import profileReducer from "./profile-reduce";
 import dialogsReducer from "./dialogs-reduce";
 import sidebarReducer from "./sidebar-reduce";
 
-const ADD_POST = "ADD-POST";
-const ADD_DIALOG = "ADD-DIALOG";
-const UDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const UPDATE_NEW_DEALOG_TEXT = "UPDATE-NEW-DIALOG-TEXT";
-
 let store = {
   _state: {
     profilePage: {
@@ -54,7 +49,6 @@ let store = {
     this._callSubcriber(this._state);
   },
 };
+export default store;
 
 window.state = store;
-
-export default store;

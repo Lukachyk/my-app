@@ -15,7 +15,7 @@ const App = (props) => {
         <div className="app-wrapper-content">
           <Routes>
             <Route
-              path="/profile"
+              path="/profile/*"
               element={
                 <Profile
                   dispatch={props.dispatch}
@@ -25,7 +25,7 @@ const App = (props) => {
               }
             />
             <Route
-              path="/dialogs*"
+              path="/dialogs/*"
               element={
                 <Dialogs
                   dispatch={props.dispatch}
