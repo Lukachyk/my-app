@@ -5,12 +5,11 @@ import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-
         <Sidebar />
         <div className="app-wrapper-content">
           <Routes>
