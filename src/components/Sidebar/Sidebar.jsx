@@ -3,7 +3,7 @@ import s from "./Sidebar.module.css";
 import { NavLink } from "react-router-dom";
 import DialogItem from "../Dialogs/DialogItem/DialogsItem";
 
-const Sidebar = (props) => {
+const Sidebar = () => {
   return (
     <div className={s.sidebar}>
       <div>
