@@ -22,6 +22,14 @@ const Sidebar = () => {
           Blockchick
         </NavLink>
       </div>
+      <div>
+        <NavLink
+          to="/users"
+          className={(navData) => (navData.isActive ? s.active : s.item)}
+        >
+          Friends
+        </NavLink>
+      </div>
       <div className={s.friends}>
         <h3>Friends</h3>
         <div className={s.friendsAva}>
