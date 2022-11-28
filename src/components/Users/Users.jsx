@@ -6,7 +6,7 @@ import userPhoto from "../../assets/images/user_icon.png";
 class Users extends React.Component {
   constructor(props) {
     super(props);
-    alert("NeW");
+
     axios
       .get("https://social-network.samuraijs.com/api/1.0/users")
       .then((response) => {
@@ -14,11 +14,10 @@ class Users extends React.Component {
       });
   }
 
-  getUsers = () => {};
   render() {
     return (
       <div>
-        {this.users.map((u) => (
+        {this.props.users.map((u) => (
           <div key={u.id}>
             <span>
               <div>

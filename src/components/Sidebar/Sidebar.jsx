@@ -19,7 +19,7 @@ const Sidebar = () => {
           to="/dialogs"
           className={(navData) => (navData.isActive ? s.active : s.item)}
         >
-          Blockchick
+          Dialogs
         </NavLink>
       </div>
       <div>
