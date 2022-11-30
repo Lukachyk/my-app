@@ -4,7 +4,7 @@ import Profile from "./components/Profile/Profile.jsx";
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainer.1";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = () => {
   return (

@@ -1,4 +1,3 @@
-import UsersApiComponent from "./UsersApiComponent";
 import { connect } from "react-redux";
 import {
   followAC,
@@ -7,12 +6,11 @@ import {
   setCurrentPageAC,
   setUsersTotalCountAC,
 } from "../../redux/users-reduce";
-import { UsersContainer } from "./UsersContainer.1";
 import React from "react";
 import axios from "axios";
 import Users from "./Users";
 
-export class UsersContainer extends React.Component {
+class UsersContainer extends React.Component {
   componentDidMount() {
     axios
       .get(
@@ -79,9 +77,4 @@ let mapDispatchToProps = (dispatch) => {
   };
 };
 
-const UsersContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UsersContainer);
-
-export default UsersContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
