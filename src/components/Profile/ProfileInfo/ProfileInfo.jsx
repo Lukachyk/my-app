@@ -10,7 +10,10 @@ const ProfileInfo = (props) => {
           alt="bank"
         ></img>
       </div>
-      <div className={s.ava}>ava+content</div>
+      <div className={s.ava}>
+        <img src={props.profile.photos.large} />
+        ava+content
+      </div>
     </div>
   );
 };
