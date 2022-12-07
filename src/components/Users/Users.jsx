@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import userPhoto from "../../assets/images/user_icon.png";
@@ -18,7 +19,7 @@ let Users = (props) => {
           return (
             <span
               className={props.currentPage === p && styles.selectedPage}
-              onClick={(e) => {
+              onClick={() => {
                 props.onPageChanged(p);
               }}
             >
@@ -45,11 +46,11 @@ let Users = (props) => {
                   onClick={() => {
                     axios
                       .delete(
-                        `https://social-network.samuraijs.com/api/1.0/follow${u.id}}`,
+                        `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
                         {
                           withCredentials: true,
                           headers: {
-                            "API-KEY": " ",
+                            "API-KEY": "6d6729e3-864b-4e06-91fc-f761e078cf6b",
                           },
                         }
                       )
@@ -67,17 +68,23 @@ let Users = (props) => {
                   onClick={() => {
                     axios
                       .post(
-                        `https://social-network.samuraijs.com/api/1.0/follow${u.id}}`,
+                        `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
                         {},
-                        { withCredentials: true ,
-                          headers: {"API-KEY": " "},)
-                   .then((response) => {
+                        {
+                          withCredentials: true,
+                          headers: {
+                            "API-KEY": "6d6729e3-864b-4e06-91fc-f761e078cf6b",
+                          },
+                        }
+                      )
+                      .then((response) => {
                         if (response.data.resultCode == 0) {
                           props.follow(u.id);
                         }
-                      })
+                      });
                   }}
                 >
+                  {" "}
                   Follow
                 </button>
               )}

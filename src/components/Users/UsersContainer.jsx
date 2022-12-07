@@ -8,7 +8,7 @@ import {
   toggleIsFetching,
 } from "../../redux/users-reduce";
 import React from "react";
-import axios from "axios";
+
 import Users from "./Users";
 import Preloader from "../common/preloader/Preloader";
 import { usersApi } from "../../api/api";
@@ -20,7 +20,7 @@ class UsersContainer extends React.Component {
       .getUsers(this.props.currentPage, this.props.pageSize)
       .then((data) => {
         this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items);
+        this.props.setUsers(data.items);
         this.props.setTotalUsersCount(data.totalCount);
       });
   }
