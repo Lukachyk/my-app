@@ -70,14 +70,12 @@ let Users = (props) => {
                         `https://social-network.samuraijs.com/api/1.0/follow${u.id}}`,
                         {},
                         { withCredentials: true ,
-                          headers: {
-                            "API-KEY": " "}
-                      )
-                      .then((response) => {
+                          headers: {"API-KEY": " "},)
+                   .then((response) => {
                         if (response.data.resultCode == 0) {
                           props.follow(u.id);
                         }
-                      });
+                      })
                   }}
                 >
                   Follow
