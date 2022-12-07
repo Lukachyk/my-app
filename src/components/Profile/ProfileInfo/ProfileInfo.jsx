@@ -1,7 +1,8 @@
 import React from "react";
 import s from "./ProfileInfo.module.css";
-
+import userPhoto from "./../../../assets/images/user_icon.png";
 const ProfileInfo = (props) => {
+  debugger;
   return (
     <div>
       <div className={s.main_img}>
@@ -11,7 +12,13 @@ const ProfileInfo = (props) => {
         ></img>
       </div>
       <div className={s.ava}>
-        <img src={props.profile.photos.large} />
+        <img
+          src={
+            props.profile.photos.large != null
+              ? props.profile.photos.large
+              : userPhoto
+          }
+        />
         ava+content
       </div>
     </div>
