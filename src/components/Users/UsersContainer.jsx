@@ -4,6 +4,7 @@ import React from "react";
 import Users from "./Users";
 import Preloader from "../common/preloader/Preloader";
 import { toggleFollowingProgress, getUsers } from "../../redux/users-reduce";
+import { Navigate } from "react-router-dom";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -13,6 +14,7 @@ class UsersContainer extends React.Component {
     this.props.getUsers(pageNumber, this.props.pageSize);
   };
   render() {
+    if (this.props.isAuth == false) return <Navigate to={"/login"} />;
     return (
       <>
         {this.props.isFetching ? <Preloader /> : null}
@@ -39,6 +41,7 @@ let mapStateToProps = (state) => {
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
     followingInProgress: state.usersPage.followingInProgress,
+    isAuth: state.auth.isAuth,
   };
 };
 
