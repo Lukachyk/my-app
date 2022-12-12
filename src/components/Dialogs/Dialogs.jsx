@@ -23,7 +23,7 @@ const Dialogs = (props) => {
     props.updateNewDialogText(text);
   };
 
-  if (props.isAuth == false) return <Navigate to={"/login"} />;
+  if (!props.isAuth) return <Navigate to={"/login"} />;
 
   return (
     <div className={s.dialogs}>

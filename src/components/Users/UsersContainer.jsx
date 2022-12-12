@@ -5,7 +5,7 @@ import Users from "./Users";
 import Preloader from "../common/preloader/Preloader";
 import { toggleFollowingProgress, getUsers } from "../../redux/users-reduce";
 import { Navigate } from "react-router-dom";
-
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
@@ -14,7 +14,6 @@ class UsersContainer extends React.Component {
     this.props.getUsers(pageNumber, this.props.pageSize);
   };
   render() {
-    if (this.props.isAuth == false) return <Navigate to={"/login"} />;
     return (
       <>
         {this.props.isFetching ? <Preloader /> : null}
@@ -45,10 +44,12 @@ let mapStateToProps = (state) => {
   };
 };
 
+let AuthRedirectComponent = withAuthRedirect(UsersContainer);
+
 export default connect(mapStateToProps, {
   follow,
   unfollow,
   setCurrentPage,
   toggleFollowingProgress,
   getUsers,
-})(UsersContainer);
+})(AuthRedirectComponent);
