@@ -1,8 +1,8 @@
 import React from "react";
 import s from "./ProfileInfo.module.css";
 import userPhoto from "./../../../assets/images/user_icon.png";
+import ProfileStatus from "./ProfileStatus";
 const ProfileInfo = (props) => {
-  debugger;
   return (
     <div>
       <div className={s.main_img}>
@@ -19,7 +19,7 @@ const ProfileInfo = (props) => {
               : userPhoto
           }
         />
-        ava+content
+        <ProfileStatus status={"Hollla"} />
       </div>
     </div>
   );
