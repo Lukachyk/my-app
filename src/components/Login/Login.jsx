@@ -1,5 +1,6 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import style from "./Login.module.css";
 
 const LoginForm = (props) => {
   return (
@@ -27,8 +28,8 @@ const Login = (props) => {
     console.log(formData);
   };
   return (
-    <div>
-      <h1>Login</h1>
+    <div className={style.login}>
+      <h1 className={style.loginName}>Login</h1>
       <LoginReduxForm onSubmit={onSubmit} />
     </div>
   );
