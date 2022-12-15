@@ -1,5 +1,5 @@
 const ADD_DIALOG = "ADD-DIALOG";
-const UPDATE_NEW_DEALOG_TEXT = "UPDATE-NEW-DIALOG-TEXT";
+// const UPDATE_NEW_DEALOG_TEXT = "UPDATE-NEW-DIALOG-TEXT";
 
 let initialState = {
   dialogsData: [
@@ -16,39 +16,40 @@ let initialState = {
     { id: 4, message: "Whats up" },
     { id: 5, message: "Hi" },
   ],
-  newDialogText: "TestText2",
 };
 
 const dialogsReducer = (state = initialState, action) => {
   let newDialogText = {
     id: 6,
-    message: state.newDialogText,
+    message: action.newDialogText,
   };
 
   switch (action.type) {
     case ADD_DIALOG:
       return {
         ...state,
-        newDialogText: " ",
         messagesData: [...state.messagesData, newDialogText],
       };
 
-    case UPDATE_NEW_DEALOG_TEXT:
-      return {
-        ...state,
-        newDialogText: action.newText,
-      };
+    // case UPDATE_NEW_DEALOG_TEXT:
+    //   return {
+    //     ...state,
+    //     newDialogText: action.newText,
+    //   };
 
     default:
       return state;
   }
 };
 
-export const addDialogActionCreator = () => ({ type: ADD_DIALOG });
-
-export const updateNewDialogText = (text) => ({
-  type: UPDATE_NEW_DEALOG_TEXT,
-  newText: text,
+export const addDialogActionCreator = (newDialogText) => ({
+  type: ADD_DIALOG,
+  newDialogText,
 });
+
+// export const updateNewDialogText = (text) => ({
+//   type: UPDATE_NEW_DEALOG_TEXT,
+//   newText: text,
+// });
 
 export default dialogsReducer;

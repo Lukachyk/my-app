@@ -17,12 +17,12 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    updateNewDialogText: (text) => {
-      let action = updateNewDialogText(text);
-      dispatch(action);
-    },
-    addDialog: () => {
-      dispatch(addDialogActionCreator());
+    // updateNewDialogText: (text) => {
+    //   let action = updateNewDialogText(text);
+    //   dispatch(action);
+    // },
+    addDialog: (newDialogText) => {
+      dispatch(addDialogActionCreator(newDialogText));
     },
   };
 };
