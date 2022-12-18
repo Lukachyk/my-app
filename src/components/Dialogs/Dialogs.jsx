@@ -4,6 +4,7 @@ import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogsItem";
 import { Field, reduxForm } from "redux-form";
 import { Navigate } from "react-router-dom";
+
 const Dialogs = (props) => {
   let dialogsElements = props.dialogsData.map((dialog) => (
     <DialogItem name={dialog.name} key={dialog.id} id={dialog.id} />
@@ -22,8 +23,8 @@ const Dialogs = (props) => {
   //   let text = newMessageElement.current.value;
   //   props.updateNewDialogText(text);
   // };
-  let addNewMessage = (value) => {
-    props.addDialog(value.newDialogText);
+  let addNewMessage = (values) => {
+    props.addDialog(values.newDialogText);
   };
 
   if (!props.isAuth) return <Navigate to={"/login"} />;
@@ -47,7 +48,7 @@ const AddMessageForm = (props) => {
           placeholder="Enter your message"
         />
         <div>
-          <button>Message</button>
+          <button>Send</button>
         </div>
       </div>
     </form>

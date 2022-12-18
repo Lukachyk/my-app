@@ -1,7 +1,4 @@
-import {
-  addDialogActionCreator,
-  updateNewDialogText,
-} from "../../redux/dialogs-reduce";
+import { addDialogActionCreator } from "../../redux/dialogs-reduce";
 import { connect } from "react-redux";
 import Dialogs from "./Dialogs";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
@@ -17,10 +14,6 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    // updateNewDialogText: (text) => {
-    //   let action = updateNewDialogText(text);
-    //   dispatch(action);
-    // },
     addDialog: (newDialogText) => {
       dispatch(addDialogActionCreator(newDialogText));
     },

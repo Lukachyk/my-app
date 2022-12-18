@@ -1,5 +1,4 @@
 const ADD_DIALOG = "ADD-DIALOG";
-// const UPDATE_NEW_DEALOG_TEXT = "UPDATE-NEW-DIALOG-TEXT";
 
 let initialState = {
   dialogsData: [
@@ -30,13 +29,6 @@ const dialogsReducer = (state = initialState, action) => {
         ...state,
         messagesData: [...state.messagesData, newDialogText],
       };
-
-    // case UPDATE_NEW_DEALOG_TEXT:
-    //   return {
-    //     ...state,
-    //     newDialogText: action.newText,
-    //   };
-
     default:
       return state;
   }
@@ -46,10 +38,5 @@ export const addDialogActionCreator = (newDialogText) => ({
   type: ADD_DIALOG,
   newDialogText,
 });
-
-// export const updateNewDialogText = (text) => ({
-//   type: UPDATE_NEW_DEALOG_TEXT,
-//   newText: text,
-// });
 
 export default dialogsReducer;

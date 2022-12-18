@@ -8,8 +8,8 @@ const MyPosts = (props) => {
     <Post message={element.message} key={element.id} like={element.like} />
   ));
 
-  let onAddPost = (value) => {
-    props.addPost(value.newPostText);
+  let onAddPost = (values) => {
+    props.addPost(values.newPostText);
   };
   return (
     <div className={s.content}>
@@ -22,17 +22,21 @@ const MyPosts = (props) => {
   );
 };
 
-let addNewPostFrom = (props) => {
+let AddNewPostFrom = (props) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmint={props.handleSubmit}>
       <div>
-        <Field name={"newPostText"} component={"textarea"} />
-        <button> Add post </button>
+        <Field name="newPostText" component="textarea" placeholder="new text" />
+      </div>
+      <div>
+        <button>Add post</button>
       </div>
     </form>
   );
 };
 
-let AddNewPostFromRedux = reduxForm({ form: "addNewPostFrom" })(addNewPostFrom);
+let AddNewPostFromRedux = reduxForm({ form: "ProfileAddNewPostFrom" })(
+  AddNewPostFrom
+);
 
 export default MyPosts;

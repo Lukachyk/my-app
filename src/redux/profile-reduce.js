@@ -9,7 +9,6 @@ let initialState = {
     { id: 1, message: "Hi, how are you", like: 3 },
     { id: 2, message: "It's my first post", like: 5 },
   ],
-  newPostText: "TestTest1",
   profile: null,
   status: "",
 };
