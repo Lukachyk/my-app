@@ -19,15 +19,15 @@ export function withRouter(Children) {
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    let userId = this.props.match.params.userId;
-    if (!userId) {
-      userId = this.props.match.params.this.props.authorizedUserId;
-      if (!userId) {
-        this.props.history.push(" /login");
-      }
-    }
-    // const userId =
-    //   this.props.match.params.userId || this.props.authorizedUserId;
+    debugger;
+    // let userId = this.props.match.params.userId;
+    // if (!userId) {
+    //   userId = this.props.authorizedUserId;
+    //   if (!userId) {
+    //     this.props.history.push("/login");
+    //   }
+    // }
+    const userId = this.props.match.params.userId || 2;
     this.props.getUserProfile(userId);
     this.props.getStatus(userId);
   }

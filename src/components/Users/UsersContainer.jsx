@@ -3,10 +3,7 @@ import { follow, unfollow, setCurrentPage } from "../../redux/users-reduce";
 import React from "react";
 import Users from "./Users";
 import Preloader from "../common/preloader/Preloader";
-import {
-  toggleFollowingProgress,
-  requestUsers,
-} from "../../redux/users-reduce";
+import { toggleFollowingProgress } from "../../redux/users-reduce";
 // import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
 import {
@@ -18,7 +15,7 @@ import {
   getFollowingInProgress,
   getIsAuth,
 } from "../../redux/users-selectors";
-
+import { requestUsers } from "../../redux/users-reduce";
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.requestUsers(this.props.currentPage, this.props.pageSize);
@@ -76,6 +73,6 @@ export default compose(
     unfollow,
     setCurrentPage,
     toggleFollowingProgress,
-    getUsers,
+    requestUsers,
   })
 )(UsersContainer);
