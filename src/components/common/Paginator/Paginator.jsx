@@ -12,13 +12,15 @@ let Paginator = (props) => {
     <div>
       {pages.map((p) => {
         return (
-          <span
-            className={props.currentPage === p && styles.selectedPage}
-            onClick={() => {
-              props.onPageChanged(p);
-            }}
-          >
-            {p}
+          <span className={styles.container}>
+            <span
+              className={props.currentPage === p && styles.selectedPage}
+              onClick={() => {
+                props.onPageChanged(p);
+              }}
+            >
+              {p}
+            </span>
           </span>
         );
       })}

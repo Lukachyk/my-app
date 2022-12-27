@@ -4,7 +4,6 @@ import userPhoto from "../../assets/images/user_icon.png";
 import styles from "./users.module.css";
 
 let User = ({ user, followingInProgress, follow, unfollow }) => {
-  const u = user;
   return (
     <div>
       <span>
