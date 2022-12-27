@@ -8,24 +8,31 @@ import {
 } from "../../../utils/validators/validators";
 import { Textare } from "../../common/preloader/FormsControls/FormsControls";
 
-const MyPosts = (props) => {
-  let elemensPost = props.postData.map((element) => (
-    <Post message={element.message} key={element.id} like={element.like} />
-  ));
+class MyPosts extends React.Component {
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextProps != this.props || nextState != this.state;
+  // }
 
-  let onAddPost = (values) => {
-    props.addPost(values.newPostText);
-  };
-  return (
-    <div className={s.content}>
-      <div>
-        <h3> My post</h3>
-        <AddNewPostFromRedux onSubmint={onAddPost} />
-        <div className={s.posts}>{elemensPost}</div>
+  render() {
+    let elemensPost = this.props.postData.map((element) => (
+      <Post message={element.message} key={element.id} like={element.like} />
+    ));
+
+    let onAddPost = (values) => {
+      this.props.addPost(values.newPostText);
+    };
+
+    return (
+      <div className={s.content}>
+        <div>
+          <h3> My post</h3>
+          <AddNewPostFromRedux onSubmint={onAddPost} />
+          <div className={s.posts}>{elemensPost}</div>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 const maxLenght5 = maxLenghtCreator(5);
 let AddNewPostFrom = (props) => {
   return (

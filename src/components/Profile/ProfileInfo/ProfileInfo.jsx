@@ -1,9 +1,9 @@
 import React from "react";
 import s from "./ProfileInfo.module.css";
-import userPhoto from "./../../../assets/images/user_icon.png";
-import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatusWhitHooks";
-const ProfileInfo = (props) => {
+import userPhoto from "./../../../assets/images/user_icon.png";
+
+const ProfileInfo = ({ profile, status, updateStatus }) => {
   return (
     <div>
       <div className={s.main_img}>
@@ -14,16 +14,9 @@ const ProfileInfo = (props) => {
       </div>
       <div className={s.ava}>
         <img
-          src={
-            props.profile.photos.large != null
-              ? props.profile.photos.large
-              : userPhoto
-          }
+          src={profile.photos.large != null ? profile.photos.large : userPhoto}
         />
-        <ProfileStatusWithHooks
-          status={props.status}
-          updateStatus={props.updateStatus}
-        />
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
       </div>
     </div>
   );

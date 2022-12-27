@@ -1,24 +1,40 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { reduxForm } from "redux-form";
+import { Navigate } from "react-router-dom";
+
+import { login } from "../../redux/auth-reduce";
 import { required } from "../../utils/validators/validators";
 import { Input } from "../common/preloader/FormsControls/FormsControls";
-import { connect } from "react-redux";
-import { login } from "../../redux/auth-reduce";
-import { Navigate } from "react-router-dom";
+import { createField } from "../common/preloader/FormsControls/FormsControls";
 import style from "../common/preloader/FormsControls/FormsControls.module.css";
 
-const LoginForm = (props) => {
+const LoginForm = ({ handleSubmit, error }) => {
   return (
-    <form onSubmit={props.handleSubmit}>
-      <div>
-        <Field
+    <form onSubmit={handleSubmit}>
+      {createField("Email", [required], "email", Input)}
+      {createField("password", [required], "password", Input, {
+        type: "password",
+      })}
+      {createField(
+        null,
+        [],
+        "rememberMe",
+        Input,
+        {
+          type: "checkbox",
+        },
+        "remember me"
+      )}
+
+      {/* <Field
           placeholder={"Email"}
           validate={[required]}
           name={"email"}
           component={Input}
-        />
-      </div>
-      <div>
+        /> */}
+
+      {/* <div>
         <Field
           placeholder={"password"}
           validate={[required]}
@@ -26,8 +42,8 @@ const LoginForm = (props) => {
           component={Input}
           type={"password"}
         />
-      </div>
-      <div>
+      </div> */}
+      {/* <div>
         <Field
           component={Input}
           name={"rememberMe"}
@@ -35,10 +51,8 @@ const LoginForm = (props) => {
           validate={[required]}
         />
         remember me
-      </div>
-      {props.error && (
-        <div className={style.formSummareError}>{props.error}</div>
-      )}
+      </div> */}
+      {error && <div className={style.formSummareError}>{error}</div>}
       <div>
         <button>Login</button>
       </div>

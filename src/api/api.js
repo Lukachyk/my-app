@@ -9,12 +9,11 @@ const instance = axios.create({
 });
 
 export const usersApi = {
-  requestUsers(currentPage = 1, pageSize = 10) {
-    return instance
-      .get(`users?page=${currentPage}&count=${pageSize}`)
-      .then((respons) => {
-        return respons.data;
-      });
+  async requestUsers(currentPage = 1, pageSize = 10) {
+    const respons = await instance.get(
+      `users?page=${currentPage}&count=${pageSize}`
+    );
+    return respons.data;
   },
   follow(userId) {
     return instance.post(`follow/${userId}`);
