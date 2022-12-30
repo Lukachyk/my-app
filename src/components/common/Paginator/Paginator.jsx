@@ -8,12 +8,12 @@ let Paginator = ({
   pageSize,
   currentPage,
   onPageChanged,
-  portionSize = 10,
+  portionSize = 11,
 }) => {
   let pagesCount = Math.ceil(totalItemsCount / pageSize);
 
   let pages = [];
-  for (let i = 1; i < pagesCount; i++) {
+  for (let i = 0; i < pagesCount; i++) {
     pages.push(i);
   }
 
@@ -37,14 +37,13 @@ let Paginator = ({
         </button>
       )}
       {pages
-        .filter((p) => (p) => leftPortionNumber && p <= rightPortionNumber)
+        .slice(leftPortionNumber, rightPortionNumber)
+        // .filter((p) => (p) => leftPortionNumber && p <= rightPortionNumber)
         .map((p) => {
           return (
             <span
               className={cn(
-                {
-                  [styles.selectedPage]: currentPage === p,
-                },
+                { [styles.selectedPage]: currentPage === p },
                 styles.pageNumber
               )}
               key={p}
